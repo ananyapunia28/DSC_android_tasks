@@ -1,0 +1,42 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="300dp"
+    android:viewportWidth="400"
+    android:viewportHeight="300">
+    <path
+        android:fillColor="#fff"
+        android:name="Shape 1"
+        android:pathData="m200.25 34.5c65.03 0 117.75 52.72 117.75 117.75c0 65.03 -52.72 117.75 -117.75 117.75c-65.03 0 -117.75 -52.72 -117.75 -117.75c0 -65.03 52.72 -117.75 117.75 -117.75z" />
+    <path
+        android:fillColor="#e0e1e5"
+        android:name="Shape 1 copy"
+        android:pathData="m200.25 47c58.13 0 105.25 47.12 105.25 105.25c0 58.13 -47.12 105.25 -105.25 105.25c-58.13 0 -105.25 -47.12 -105.25 -105.25c0 -58.13 47.12 -105.25 105.25 -105.25z" />
+    <path
+        android:fillColor="#fff"
+        android:fillAlpha="0.39"
+        android:name="Shape 2"
+        android:pathData="m256.85 205.15 -0.71 0.71 19.66 19.66c0.23 -0.24 0.46 -0.48 0.69 -0.72l-19.65 -19.65z" />
+    <path
+        android:fillColor="#fff"
+        android:fillAlpha="0.39"
+        android:name="Shape 3"
+        android:pathData="m243.75 212.8 -0.81 0.58 17.86 24.97c0.27 -0.19 0.54 -0.39 0.81 -0.58l-17.86 -24.98z" />
+    <path
+        android:fillColor="#fff"
+        android:fillAlpha="0.39"
+        android:name="Shape 3 copy"
+        android:pathData="m230.28 218.83 -0.9 0.43 13.78 29.13c0.3 -0.14 0.61 -0.27 0.91 -0.41l-13.78 -29.15z" />
+    <path
+        android:fillColor="#fff"
+        android:fillAlpha="0.39"
+        android:name="Shape 3 copy 2"
+        android:pathData="m214.82 218.36 -0.97 0.23 8.57 36.58c0.33 -0.07 0.65 -0.14 0.98 -0.21l-8.57 -36.59z" />
+    <path
+        android:fillColor="#4ab7e8"
+        android:name="Shape 1 copy 2"
+        android:pathData="m200.25 47c-58.13 0 -105.25 47.12 -105.25 105.25c0 58.13 47.12 105.25 105.25 105.25c0.25 0 0.5 -0 0.75 -0v-108.5l87.69 60.33c10.63 -16.44 16.81 -36.04 16.81 -57.08c0 -58.13 -47.12 -105.25 -105.25 -105.25z" />
+    <path
+        android:fillColor="#000"
+        android:name="Gradient Fill 1"
+        android:pathData="m200.25 67.5c46.81 0 84.75 37.94 84.75 84.75c0 46.81 -37.94 84.75 -84.75 84.75c-46.81 0 -84.75 -37.94 -84.75 -84.75c0 -46.81 37.94 -84.75 84.75 -84.75z" />
+</vector>
