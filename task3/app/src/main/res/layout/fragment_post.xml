@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/add_btn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_plus_insert_add_rectangle_icon_176436" />
+
+            <ImageView
+                android:id="@+id/insta"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/add_btn"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_instagram_logo" />
+
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:id="@+id/chatButton"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/insta"
+                android:background="@color/white"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_facebook_messenger_1" />
+
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/posts"
+        tools:listitem="@layout/postview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/postFragment">
+
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.example.myinsta.PostFragment"
+        android:label="PostFragment">
+        <action
+            android:id="@+id/action_postFragment_to_chatFragment"
+            app:destination="@id/chatFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_right"
+            app:enterAnim="@anim/go_right"
+            app:exitAnim="@anim/move_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.myinsta.ChatFragment"
+        android:label="ChatFragment">
+        <action
+            android:id="@+id/action_chatFragment_to_postFragment"
+            app:destination="@id/postFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_right"
+            app:enterAnim="@anim/go_right"
+            app:exitAnim="@anim/move_left"/>
+    </fragment>
+
+</navigation>

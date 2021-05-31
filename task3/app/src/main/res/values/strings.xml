@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">InstagramC</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="usern">username</string>
+    <string name="chats">Chats</string>
+    <string name="rooms">Rooms</string>
+    <string name="us">Username1</string>
+    <string name="mentioned">Mentioned you in a story</string>
+</resources>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/add_btnbck"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:adjustViewBounds="true"
+                android:layout_alignParentStart="true"
+                android:background="@color/white"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/usern"
+                android:textSize="22sp"
+                android:textColor="@color/black"
+                android:layout_toEndOf="@+id/add_btnbck"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/me"/>
+
+
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_toStartOf="@+id/open"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/white"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_baseline_videocam_24" />
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/white"
+                android:scaleType="fitXY"
+                android:id="@+id/open"
+                android:src="@drawable/ic_baseline_open_in_new_24" />
+
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:elevation="8dp"
+            android:id="@+id/cdv1"
+            android:layout_marginStart="15dp"
+            tools:targetApi="lollipop">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chats"
+                android:textSize="20sp"
+                android:layout_gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:elevation="8dp"
+            android:layout_toEndOf="@+id/cdv1"
+            android:layout_marginStart="6dp"
+            tools:targetApi="lollipop">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rooms"
+                android:textSize="20sp"
+                android:layout_gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chats"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp"
+        android:clipToPadding="false"
+        tools:listitem="@layout/chatsample"/>
+
+
+
+
+
+
+</LinearLayout>

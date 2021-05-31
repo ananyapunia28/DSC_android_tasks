@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/alan"
+                android:id="@+id/icn1"
+                android:layout_marginTop="4dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_toEndOf="@+id/icn1"
+                android:text="username"
+                android:textSize="20sp"
+                android:id="@+id/alnwlkr"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"/>
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_toEndOf="@+id/alnwlkr"
+                android:src="@drawable/ic_baseline_more_vert_24"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="8dp"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="395dp"
+            android:layout_height="299dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
+            android:scaleType="fitXY"
+            android:id="@+id/postimg"
+            android:src="@drawable/alan44" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="8dp">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="6dp"
+                android:id="@+id/like1"
+                android:src="@drawable/ic_heart_outline_5_51_58_pm"/>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_instagram_comment"
+                android:layout_toEndOf="@+id/like1"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="13dp"
+                android:id="@+id/cmnt1"/>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_send"
+                android:layout_toEndOf="@+id/cmnt1"
+                android:layout_marginTop="5dp"
+                android:id="@+id/shr"
+                android:layout_marginStart="12dp"/>
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_baseline_bookmark_border_24"
+                android:layout_toEndOf="@+id/shr"
+                android:layout_marginStart="256dp"
+
+                />
+
+
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11M likes"
+            android:textColor="@color/black"
+            android:layout_marginStart="13dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="username"
+            android:id="@+id/txt"
+            android:textColor="@color/black"
+            android:layout_marginStart="13dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View all 1080 comments"
+            android:layout_marginStart="13dp"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/iconalan"
+                android:layout_marginStart="13dp"
+                android:id="@+id/i1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/i1"
+                android:text="Add a comment"
+                android:layout_marginStart="5dp"/>
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
