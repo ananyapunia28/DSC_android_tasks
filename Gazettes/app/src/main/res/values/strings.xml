@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Gazettes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="headline">They saw something real’: Nasa getting serious about UFOs under new chief</string>
+    <string name="signup">Sign Up</string>
+</resources>

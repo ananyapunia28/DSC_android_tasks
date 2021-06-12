@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1012370869599",
+    "project_id": "gazettes-f56dd",
+    "storage_bucket": "gazettes-f56dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012370869599:android:0e9193e2240d1b582a3aea",
+        "android_client_info": {
+          "package_name": "com.android.gazettes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012370869599-k8kecv6ih82166nf6jel8aaokbdaro46.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMGI5FWszWBWmIZPb8-oN88ESqp_g2nnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012370869599-k8kecv6ih82166nf6jel8aaokbdaro46.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012370869599:android:d04b9199dd9c0e942a3aea",
+        "android_client_info": {
+          "package_name": "com.example.gazettes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012370869599-k8kecv6ih82166nf6jel8aaokbdaro46.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMGI5FWszWBWmIZPb8-oN88ESqp_g2nnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012370869599-k8kecv6ih82166nf6jel8aaokbdaro46.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
