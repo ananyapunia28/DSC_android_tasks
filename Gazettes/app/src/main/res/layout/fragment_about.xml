@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UI.AboutFragment">
 
@@ -24,7 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_below="@+id/tool"
+            android:layout_below="@id/tool"
             android:layout_marginTop="30dp"
             android:text="Gazettes"
             android:textSize="40sp"
@@ -32,52 +30,40 @@
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="@color/black"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:foregroundGravity="fill_horizontal"
+            android:layout_height="200dp"
+            android:id="@+id/images"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/newss"
+            android:layout_below="@id/abt"
+            android:layout_centerHorizontal="true"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_below="@+id/abt"
-            android:text="The News App"
-            android:textSize="23sp"
-            android:id="@+id/t1"
-            android:gravity="center"
-            android:textColor="#6495ED"/>
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/t1"
-            android:layout_marginTop="30dp"
-            app:cardCornerRadius="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            android:layout_below="@id/images"
+            android:textSize="25sp"
+            android:id="@+id/app"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10sp"
+            android:text="Gazettes is a news app.It shows the latest news. "
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/app"
+            android:textSize="20sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20sp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            android:text="Gazettes | News App | Developer.Inc "
+            android:layout_marginTop="90dp"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:id="@+id/strtxt"
-                    android:text="About Us"
-                    android:textSize="25sp"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:textSize="25sp"
-                    android:textColor="@color/black"
-                    android:text="See"
-                    android:layout_marginBottom="4dp"
-                    android:layout_below="@+id/strtxt"/>
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
 
 
-</FrameLayout>
+</layout>

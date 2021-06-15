@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:id="@+id/progressBar"
             android:layout_height="15dp"
-            android:layout_below="@+id/topAppBar"
+            android:layout_below="@id/topAppBar"
             android:indeterminate="true"
             android:visibility="visible"/>
 

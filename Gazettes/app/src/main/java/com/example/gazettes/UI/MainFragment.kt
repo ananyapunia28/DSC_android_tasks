@@ -1,6 +1,7 @@
 package com.example.gazettes.UI
 
 import android.os.Bundle
+import com.google.android.material.snackbar.Snackbar
 import android.util.Log
 import android.view.*
 import android.widget.ProgressBar
@@ -8,13 +9,16 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gazettes.data.MyNews
-import com.example.gazettes.adapter.NewsAdapter
-import com.example.gazettes.NewsService
 import com.example.gazettes.R
+import com.example.gazettes.adapter.NewsAdapter
+import com.example.gazettes.data.Article
+import com.example.gazettes.data.MyNews
+import com.example.gazettes.service.NewsService
+import kotlinx.android.synthetic.main.news_lay.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class MainFragment : Fragment() {
     lateinit var adapter: NewsAdapter
@@ -24,6 +28,7 @@ class MainFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,8 +37,12 @@ class MainFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_main, container, false)
         val progressbar: ProgressBar = rootView.findViewById(R.id.progressBar)
         val news = NewsService.NewsInstance.getHeadline("in", 1)
+
+
+
         news.enqueue(object : Callback<MyNews> {
             override fun onResponse(call: Call<MyNews>, response: Response<MyNews>) {
+
                 val news = response.body()
                 if (news != null) {
                     Log.d("Gazettes", news.toString())
@@ -52,9 +61,21 @@ class MainFragment : Fragment() {
         })
 
 
-
         return rootView
     }
+    fun onItemClick(article: Article, position: Int) {
+        val bundle = Bundle()
+        bundle.putString("url",article.url)
+        val fragment = WebFragment()
+        Log.d("Gazettes","Welcome")
+        fragment.arguments = bundle
+        requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myHostFragment,fragment)
+            .addToBackStack("News").commit()
+
+    }
+
+
+
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -63,7 +84,8 @@ class MainFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    fun onMenuItemClicked(item: MenuItem): Boolean {
+
 
         when (item.itemId) {
             R.id.m1 -> {
@@ -73,10 +95,14 @@ class MainFragment : Fragment() {
             R.id.m2 -> {
                 navController.navigate(R.id.action_mainFragment_to_licenseFragment)
             }
+            R.id.m3 -> {
+                navController.navigate(R.id.action_mainFragment_to_profileFragment)
+            }
         }
 
         return super.onOptionsItemSelected(item)
     }
+
 
 }
 

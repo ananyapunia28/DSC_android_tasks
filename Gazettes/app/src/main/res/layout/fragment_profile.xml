@@ -14,13 +14,14 @@
             android:layout_height="wrap_content"
             android:text="You're logged in as "
             android:textSize="30sp"
+            android:textColor="@color/black"
             android:gravity="center"
             android:layout_marginTop="30dp"/>
         <TextView
             android:id="@+id/prof1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/prof"
+            android:layout_below="@id/prof"
             android:layout_marginTop="30dp"
             android:layout_marginStart="20dp"
             android:text="Email: "
@@ -29,7 +30,7 @@
             android:id="@+id/prof2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/prof1"
+            android:layout_below="@id/prof1"
             android:layout_marginTop="30dp"
             android:layout_marginStart="20dp"
             android:text="Age: "
@@ -38,7 +39,7 @@
             android:id="@+id/prof3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/prof2"
+            android:layout_below="@id/prof2"
             android:layout_marginTop="30dp"
             android:layout_marginStart="20dp"
             android:text="Address: "
@@ -47,7 +48,7 @@
             android:id="@+id/prof4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/prof3"
+            android:layout_below="@id/prof3"
             android:layout_marginTop="30dp"
             android:layout_marginStart="20dp"
             android:text="Phone no.: "
@@ -56,11 +57,18 @@
             android:id="@+id/prof5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/prof4"
+            android:layout_below="@id/prof4"
             android:layout_marginTop="30dp"
             android:layout_marginStart="20dp"
             android:text="Bio: "
             android:textSize="20sp"/>
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/prof5"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/profile"/>
 
 
     </RelativeLayout>

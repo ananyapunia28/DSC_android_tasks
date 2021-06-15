@@ -13,20 +13,20 @@ class SignupViewModel: ViewModel() {
     var address:String? = null
     var bio:String? = null
 
-    lateinit var signupListener:Signuplistener
-
-
-    fun onRegisterButtonClick(view: View){
-
-
-
-        signupListener?.on_Started()
-        if(email.isNullOrEmpty() || pass.isNullOrEmpty() ||name.isNullOrEmpty()|| cpass.isNullOrEmpty() || age.isNullOrEmpty() || phoneno.isNullOrEmpty() || address.isNullOrEmpty() || bio.isNullOrEmpty()){
-            signupListener?.on_Failure("Invalid Details")
-            return
-        }
-
-        signupListener?.on_Success()
-
-    }
+//    lateinit var signupListener: Signuplistener
+//
+//
+//    fun onSignupButtonClick(view: View){
+//
+//
+//
+//        signupListener?.on_Started()
+//        if(email.isNullOrEmpty() || pass.isNullOrEmpty() ||name.isNullOrEmpty()|| cpass.isNullOrEmpty() || age.isNullOrEmpty() || phoneno.isNullOrEmpty() || address.isNullOrEmpty() || bio.isNullOrEmpty()){
+//            signupListener?.on_Failure("Invalid Details")
+//            return
+//        }
+//
+//        signupListener?.on_Success()
+//
+//    }
 }
