@@ -2,19 +2,22 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     >
 
     <data>
 
         <variable
             name="signupdetails"
-            type="com.example.gazettes.viewmodels.SignupViewModel" />
+            type="com.example.gazettes.viewmodels.SignViewModel" />
 
     </data>
 
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/doimg">
         <ImageView
             android:layout_width="300dp"
             android:layout_height="100dp"
@@ -22,6 +25,7 @@
             android:id="@+id/iview"
             android:src="@drawable/welcome"
             android:layout_centerHorizontal="true"/>
+
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -167,8 +171,11 @@
 
         <Button
             android:id="@+id/SignupBtn"
+            android:onClick="@{signupdetails.onSignupBtnClick}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:backgroundTint="@color/blue"
             android:layout_below="@id/add"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"

@@ -2,22 +2,30 @@ package com.example.gazettes.UI
 
 
 import android.app.ProgressDialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
+
 
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.gazettes.R
 import com.example.gazettes.databinding.FragmentLoginBinding
 import com.example.gazettes.viewmodels.LoginListener
 import com.example.gazettes.viewmodels.LoginViewModel
+import com.google.android.material.snackbar.Snackbar
+
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginFragment : Fragment(R.layout.fragment_login), LoginListener{
@@ -33,15 +41,17 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginListener{
     private var password =""
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
-        val viewModel= ViewModelProvider(this).get(LoginViewModel::class.java)
-        binding.logindetails = LoginViewModel()
-        viewModel.loginListener = this
+//        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
+        val viewModel= ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        binding.logindetails= viewModel
+        viewModel.authListener = this
         return binding.root
     }
 
@@ -52,7 +62,6 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginListener{
 
         progressDialog = ProgressDialog(context)
         progressDialog.setTitle("Please Wait")
-        progressDialog.setMessage("Logging in...")
         progressDialog.setCanceledOnTouchOutside(false)
 
 
@@ -64,15 +73,14 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginListener{
             navcontroller.navigate(R.id.signupFragment)
         }
 
-        binding.loginBtn.setOnClickListener{
+//        binding.loginBtn.setOnClickListener{
 
-            checkUser()
-            firebaseLogin()
-        }
+//            checkUser()
+//            firebaseLogin()
+//        }
 
 
     }
-
 
     override fun onStarted() {
 
@@ -89,13 +97,14 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginListener{
         }
         else
         {
-            firebaseLogin()
+//            firebaseLogin()
+            checkUser()
         }
     }
 
     override fun onSuccess() {
 
-        fragmentManager?.popBackStack()
+        findNavController().popBackStack()
     }
 
     override fun onFailure(message: String) {
@@ -108,11 +117,11 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginListener{
         val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser!=null){
 
-            navcontroller.navigate(R.id.profileFragment)
-
+            navcontroller.navigate(R.id.action_loginFragment2_to_mainFragment)
         }
-        else if(firebaseUser == null){
-            navcontroller.navigate(R.id.signupFragment)
+        else {
+//            navcontroller.navigate(R.id.action_loginFragment2_to_signupFragment)
+            firebaseLogin()
         }
     }
 
@@ -122,10 +131,10 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginListener{
         firebaseAuth.signInWithEmailAndPassword(email,password).addOnSuccessListener {
 
             progressDialog.dismiss()
-            val firebaseUser = firebaseAuth.currentUser
-            val email =firebaseUser!!.email
+//            val firebaseUser = firebaseAuth.currentUser
+//            val email =firebaseUser!!.email
+            view?.let { Snackbar.make(it,"Logged In As ${email}", Snackbar.LENGTH_SHORT).show() }
             navcontroller.navigate(R.id.profileFragment)
-
 
 
         }

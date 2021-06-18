@@ -25,6 +25,7 @@ class WebFragment : Fragment() {
         val url :String = arguments?.getString("url").toString()
         view.findViewById<WebView>(R.id.webView).webViewClient = WebViewClient()
         view.findViewById<WebView>(R.id.webView).loadUrl(url)
+
         return view
     }
 
