@@ -16,6 +16,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
     lateinit var navController: NavController
@@ -59,23 +61,27 @@ class ProfileFragment : Fragment() {
     }
 
     private fun checkUser() {
+        circularProgressbar.visibility = View.VISIBLE
         val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser!=null){
             userID = firebaseUser!!.uid
             database = FirebaseDatabase.getInstance().getReference("Users")
             database.child(userID).get().addOnSuccessListener {
+
                 if(it != null){
+                    circularProgressbar.visibility = View.GONE
+
                     binding.prof1.text = it.child("email").value.toString()
                     binding.prof2.text = it.child("age").value.toString()
                     binding.prof3.text = it.child("address").value.toString()
                     binding.prof4.text = it.child("phone").value.toString()
                     binding.prof5.text = it.child("bio").value.toString()
 
-
                 }
                 else {
                     Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show()
                 }
+
             }
                 .addOnFailureListener {
                     Toast.makeText(context,"Failed ",Toast.LENGTH_SHORT).show()
@@ -85,7 +91,11 @@ class ProfileFragment : Fragment() {
         else {
             navController.navigate(R.id.mainFragment)
 
+
         }
 
+
+
     }
+
 }

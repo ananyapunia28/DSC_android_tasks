@@ -104,6 +104,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:inputType="number"
+                android:maxLength="10"
                 android:hint="Phone no."/>
 
 
@@ -166,6 +167,13 @@
 
 
         </com.google.android.material.textfield.TextInputLayout>
+        <ProgressBar
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:id="@+id/progressBar"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:indeterminate="true" />
 
 
 
@@ -174,7 +182,7 @@
             android:onClick="@{signupdetails.onSignupBtnClick}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/blue"
+            android:background="@drawable/custombtn"
             android:backgroundTint="@color/blue"
             android:layout_below="@id/add"
             android:layout_marginStart="20dp"

@@ -40,14 +40,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/images"
-            android:textSize="25sp"
+            android:textSize="24sp"
             android:id="@+id/app"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="10sp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="25dp"
             android:textColor="@color/black"
-            android:text="Gazettes is a news app.It shows the latest news. "
-            android:layout_marginTop="20dp"/>
+            android:text="@string/gazettes_is_a_news_app_it_will_display_the_latest_indian_news_stay_updated"
+            android:layout_marginTop="40dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +56,7 @@
             android:layout_marginEnd="20sp"
             android:textColor="@color/black"
             android:layout_centerHorizontal="true"
-            android:text="Gazettes | News App | Developer.Inc "
+            android:text="Gazettes | News App | Developer "
             android:layout_marginTop="90dp"/>
 
 

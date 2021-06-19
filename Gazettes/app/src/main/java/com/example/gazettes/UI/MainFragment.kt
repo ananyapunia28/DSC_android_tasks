@@ -10,6 +10,7 @@ import android.os.CountDownTimer
 import com.google.android.material.snackbar.Snackbar
 import android.util.Log
 import android.view.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.ProgressBar
 import android.widget.Toast
 import android.widget.Toolbar
@@ -34,6 +35,7 @@ import com.example.gazettes.service.APIRequest
 import com.google.android.gms.common.api.Api
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.firebase.auth.FirebaseAuth
 import com.ncornette.cache.OkCacheControl
 import com.ncornette.cache.OkCacheControl.*
 import kotlinx.android.synthetic.*
@@ -57,6 +59,7 @@ class MainFragment : Fragment(), Toolbar.OnMenuItemClickListener,
 
 //    lateinit var countdownTimer: CountDownTimer
 //    private var seconds = 3L
+private lateinit var auth : FirebaseAuth
 
     private var titlesList = mutableListOf<String>()
     private var descList = mutableListOf<String>()
@@ -73,6 +76,7 @@ class MainFragment : Fragment(), Toolbar.OnMenuItemClickListener,
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        auth = FirebaseAuth.getInstance()
         setHasOptionsMenu(true)
 
     }
@@ -265,6 +269,7 @@ class MainFragment : Fragment(), Toolbar.OnMenuItemClickListener,
 
     }
 
+
     override fun onMenuItemClick(item: MenuItem?): Boolean {
         when (item!!.itemId) {
             R.id.m1 -> {
@@ -280,7 +285,13 @@ class MainFragment : Fragment(), Toolbar.OnMenuItemClickListener,
             }
             R.id.m3 -> {
                 findNavController().navigate(R.id.action_mainFragment_to_profileFragment)
-                true
+
+            }
+            R.id.m4 -> {
+                auth.signOut()
+                findNavController().navigate(R.id.action_mainFragment_to_loginFragment2)
+
+
             }
             else -> Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show()
 
@@ -288,9 +299,6 @@ class MainFragment : Fragment(), Toolbar.OnMenuItemClickListener,
         return true
     }
 }
-// Ab krna run
-// Run krna zara
-
 
 
 

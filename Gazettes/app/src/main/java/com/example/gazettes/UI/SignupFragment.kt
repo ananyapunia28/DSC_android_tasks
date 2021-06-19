@@ -1,6 +1,7 @@
 package com.example.gazettes.UI
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -20,13 +22,15 @@ import com.example.gazettes.viewmodels.SignViewModel
 import com.example.gazettes.viewmodels.SignupListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_signup.*
 import java.util.regex.Pattern
 
 
 class SignupFragment : Fragment(R.layout.fragment_signup), SignupListener {
     lateinit var binding: FragmentSignupBinding
     lateinit var navController: NavController
-    lateinit var progressDialog: ProgressDialog
+//    lateinit var progressDialog: ProgressDialog
     lateinit var firebaseAuth: FirebaseAuth
 
     lateinit var email: String
@@ -52,10 +56,10 @@ class SignupFragment : Fragment(R.layout.fragment_signup), SignupListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
-
-        progressDialog = ProgressDialog(context)
-        progressDialog.setTitle("Please Wait")
-        progressDialog.setCanceledOnTouchOutside(false)
+//
+//        progressDialog = ProgressDialog(context)
+//        progressDialog.setTitle("Please Wait")
+//        progressDialog.setCanceledOnTouchOutside(false)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -66,33 +70,35 @@ class SignupFragment : Fragment(R.layout.fragment_signup), SignupListener {
 //    }
     }
     private fun firebaseSignup() {
-        progressDialog.show()
+
 
         firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnSuccessListener {
-            progressDialog.dismiss()
+            progressBar.visibility = View.VISIBLE
 
-            val user = User(email,pass,cpass,age,phone,address,bio)
+            val user = User(email, pass, cpass, age, phone, address, bio)
+                FirebaseDatabase.getInstance().getReference("Users")
+                    .child(FirebaseAuth.getInstance().currentUser!!.uid)
+                    .setValue(user).addOnCompleteListener {
+                        progressBar.visibility = View.GONE
+                        Toast.makeText(context, "Registration Successful", Toast.LENGTH_SHORT)
+                            .show()
+                        navController.navigate(R.id.action_signupFragment_to_loginFragment2)
 
-//            var user = Profile(bio, age, phone, address, bio, email)
-            FirebaseDatabase.getInstance().getReference("Users")
-                .child(FirebaseAuth.getInstance().currentUser!!.uid)
-                .setValue(user).addOnCompleteListener {
-                    Toast.makeText(context, "Registration Successful", Toast.LENGTH_SHORT).show()
-                    navController.navigate(R.id.action_signupFragment_to_loginFragment2)
+                    }
+                    .addOnFailureListener {
+                        progressBar.visibility = View.GONE
+                        Toast.makeText(context, "Failed! Try again", Toast.LENGTH_SHORT).show()
 
-                }
-                .addOnFailureListener {
-                    Toast.makeText(context, "Failed! Try again", Toast.LENGTH_SHORT).show()
+                    }
 
-                }
-
-        }
+            }
             .addOnFailureListener { e ->
-                progressDialog.dismiss()
+                progressBar.visibility = View.GONE
                 Toast.makeText(context, "Signup failed due to ${e.message}", Toast.LENGTH_SHORT)
                     .show()
 
             }
+
     }
 
 
@@ -119,10 +125,9 @@ class SignupFragment : Fragment(R.layout.fragment_signup), SignupListener {
                 "Password must contain one uppercase, one lowercase, a digit and it's length must be in between 8-12",
                 Toast.LENGTH_SHORT
             ).show()
-            binding.pswrdet.error = "Password must contain one uppercase, one lowercase, a digit and it's length must be in between 8-12"
         } else if (cpass != pass) {
             Toast.makeText(context, "Passwords mismatched", Toast.LENGTH_SHORT).show()
-            binding.cpswrdet.error = "Passwords don't match"
+
 
         } else if (!isValidPhoneNumber(phone) ||phone.length>10 || phone.length<10) {
             Toast.makeText(context, "Enter Valid Phone no.", Toast.LENGTH_SHORT).show()
@@ -133,7 +138,7 @@ class SignupFragment : Fragment(R.layout.fragment_signup), SignupListener {
             Toast.makeText(context, "Enter Phone no.", Toast.LENGTH_SHORT).show()
         } else {
             firebaseSignup()
-            
+
         }
 
     }
@@ -155,6 +160,7 @@ class SignupFragment : Fragment(R.layout.fragment_signup), SignupListener {
 
     override fun onSuccess() {
         Toast.makeText(context, "User Registered", Toast.LENGTH_SHORT).show()
+
 
     }
 

@@ -37,7 +37,7 @@
                     android:id="@+id/news"
                     android:maxLines="2"
                     android:textStyle="bold"
-                    android:textColor="#6495ED"
+                    android:textColor="@color/black"
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="4dp"/>
                 <TextView
@@ -50,7 +50,7 @@
                     android:id="@+id/author"
                     android:textStyle="bold"
                     android:layout_marginBottom="6dp"
-                    android:textColor="@color/black"
+                    android:textColor="#6495ED"
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="4dp"/>
 
